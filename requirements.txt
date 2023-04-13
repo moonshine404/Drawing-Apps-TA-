@@ -1,0 +1,9 @@
+streamlit
+streamlit-drawable-canvas
+tensorflow
+pandas
+pillow
+tensorflow
+tensorboard
+pyrebase4
+
