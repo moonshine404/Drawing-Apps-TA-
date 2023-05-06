@@ -7,3 +7,4 @@ pillow
 tensorflow
 tensorboard
 google-auth-httplib2
+firebase-admin
