@@ -13,14 +13,14 @@ import pyrebase
 
 
 firebaseConfig = {
-  apiKey: "AIzaSyA8BJC9J-i24mxJ8_QjYtEnfCaYE9UUQiA",
-  authDomain: "drawingapp2-dad27.firebaseapp.com",
-  databaseURL: "https://drawingapp2-dad27-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "drawingapp2-dad27",
-  storageBucket: "drawingapp2-dad27.appspot.com",
-  messagingSenderId: "321067027016",
-  appId: "1:321067027016:web:2a19a4be2afaaadf8b667d",
-  measurementId: "G-S271FDS8BD"
+  'apiKey': "AIzaSyA8BJC9J-i24mxJ8_QjYtEnfCaYE9UUQiA",
+  'authDomain': "drawingapp2-dad27.firebaseapp.com",
+  'databaseURL': "https://drawingapp2-dad27-default-rtdb.asia-southeast1.firebasedatabase.app/",
+  'projectId': "drawingapp2-dad27",
+  'storageBucket': "drawingapp2-dad27.appspot.com",
+  'messagingSenderId': "321067027016",
+  'appId': "1:321067027016:web:2a19a4be2afaaadf8b667d",
+  'measurementId': "G-S271FDS8BD"
 }
 
 #auth
