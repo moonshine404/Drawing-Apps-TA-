@@ -7,4 +7,3 @@ pillow
 tensorflow
 tensorboard
 google-auth-httplib2
-pyrebase4
