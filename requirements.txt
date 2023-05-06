@@ -1,7 +1,7 @@
 streamlit
 streamlit-drawable-canvas
 tensorflow
-protobuff==4.21.6
+protobuf==4.21.6
 pandas
 pillow
 tensorflow
