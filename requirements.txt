@@ -6,5 +6,5 @@ pandas
 pillow
 tensorflow
 tensorboard
-requests
+google-auth-httplib2
 pyrebase4
