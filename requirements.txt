@@ -6,4 +6,5 @@ pillow
 tensorflow
 tensorboard
 pyrebase4
-
+pycryptodome
+pyrebase
