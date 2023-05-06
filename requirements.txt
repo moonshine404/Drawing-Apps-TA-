@@ -6,4 +6,4 @@ pillow
 tensorflow
 tensorboard
 requests
-pyrebase4
+Pyrebase
