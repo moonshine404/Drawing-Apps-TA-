@@ -9,7 +9,7 @@ from PIL import Image, ImageOps
 from streamlit_drawable_canvas import st_canvas
 from tensorflow.keras.utils import img_to_array
 import random
-import pyrebase
+from pyrebase import pyrebase
 
 
 firebaseConfig = {
