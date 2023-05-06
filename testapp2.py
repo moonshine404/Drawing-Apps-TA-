@@ -19,7 +19,6 @@ cred = credentials.Certificate("drawingapp2-dad27-firebase-adminsdk-i02q6-3ed443
 firebase_admin.initialize_app(cred, {'storageBucket': 'drawingapp2-dad27.appspot.com'})
 bucket = storage.bucket()
 
-image_data = st.session_state.my_drawing.to_json()
 #auth
 #firebase = pyrebase.initialize_app(firebaseConfig)
 #auth = firebase.auth
@@ -64,15 +63,6 @@ def prediksi(image_data, model):
             return result
             break
 
-def get_data():
-    data = db.child("data").get()
-    return data
-        
-def save_data(data, img):
-    db.child("data").push(data)
-    img_name = data["name"] + ".jpg"
-    storage.child(img_name).put(img)
-
 menu = ["Drawing", "Info Aplikasi", "Tutorial"]
 choice = st.sidebar.selectbox("Pilih Halaman", menu)
 
@@ -101,6 +91,7 @@ if choice == "Drawing":
         key="canvas",
     )
     if st.button("Simpan Gambar"):
+        image_data = st.session_state.canvas_result.to_json()
         image = Image.open(io.BytesIO(image_data.encode()))
 
     # Set filename for the uploaded image
