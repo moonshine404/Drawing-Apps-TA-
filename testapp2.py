@@ -22,12 +22,6 @@ bucket = storage.bucket()
 firebase_app = firebase_admin.get_app(name='drawappp')
 
 db = firestore.client(app=firebase_app)
-#auth
-#firebase = pyrebase.initialize_app(firebaseConfig)
-#auth = firebase.auth
-#db
-#db = firebase.database()
-#storage = firebase.storage()
 
 def load_model():
     model = tf.keras.models.load_model('model4.h5')
