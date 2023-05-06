@@ -5,8 +5,5 @@ pandas
 pillow
 tensorflow
 tensorboard
-pycryptodome
-requests.packages.urllib3.contrib.appengine
-lxml
-cssselect
+requests
 pyrebase4
