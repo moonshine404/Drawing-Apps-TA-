@@ -6,7 +6,7 @@ pillow
 tensorflow
 tensorboard
 pycryptodome
-requests
+requests.packages.urllib3.contrib.appengine
 lxml
 cssselect
 pyrebase4
