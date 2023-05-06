@@ -15,8 +15,8 @@ import google.auth
 import google.auth.transport.requests
 
 
-cred = credentials.Certificate("drawingapp2-dad27-firebase-adminsdk-i02q6-3ed4431333.json")
-firebase_admin.initialize_app(cred, {'storageBucket': 'drawingapp2-dad27.appspot.com'})
+cred = credentials.Certificate("drawingapp3-firebase-adminsdk-v53rh-226ee77a90.json")
+firebase_admin.initialize_app(cred, {'storageBucket': 'drawingapp3.appspot.com'})
 bucket = storage.bucket()
 
 #auth
