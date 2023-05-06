@@ -9,27 +9,23 @@ from PIL import Image, ImageOps
 from streamlit_drawable_canvas import st_canvas
 from tensorflow.keras.utils import img_to_array
 import random
-from pyrebase import pyrebase
+import firebase_admin
+from firebase_admin import credentials, storage
+import google.auth
+import google.auth.transport.requests
 
 
-firebaseConfig = {
-  'apiKey': "AIzaSyA8BJC9J-i24mxJ8_QjYtEnfCaYE9UUQiA",
-  'authDomain': "drawingapp2-dad27.firebaseapp.com",
-  'databaseURL': "https://drawingapp2-dad27-default-rtdb.asia-southeast1.firebasedatabase.app/",
-  'projectId': "drawingapp2-dad27",
-  'storageBucket': "drawingapp2-dad27.appspot.com",
-  'messagingSenderId': "321067027016",
-  'appId': "1:321067027016:web:2a19a4be2afaaadf8b667d",
-  'measurementId': "G-S271FDS8BD"
-}
+cred = credentials.Certificate("drawingapp2-dad27-firebase-adminsdk-i02q6-3ed4431333.json")
+firebase_admin.initialize_app(cred, {'storageBucket': 'drawingapp2-dad27.appspot.com'})
+bucket = storage.bucket()
 
+image_data = st.session_state.my_drawing.to_json()
 #auth
-firebase = pyrebase.initialize_app(firebaseConfig)
-auth = firebase.auth
-
+#firebase = pyrebase.initialize_app(firebaseConfig)
+#auth = firebase.auth
 #db
-db = firebase.database()
-storage = firebase.storage()
+#db = firebase.database()
+#storage = firebase.storage()
 
 def load_model():
     model = tf.keras.models.load_model('model4.h5')
@@ -105,16 +101,15 @@ if choice == "Drawing":
         key="canvas",
     )
     if st.button("Simpan Gambar"):
-        image = Image.fromarray(canvas_result.image_data.astype(np.uint8)).convert("RGB")
-        img_buffer = io.BytesIO()
-        image.save(img_buffer, format="JPEG")
-        img_bytes = img_buffer.getvalue()
-        
-        # Input data yang ingin disimpan pada database
-        name = str(pilihan_soal)
-        label = str(prediksi)
-        data = {"name": name, "label": label}
-        save_data(data, img_bytes)
+        image = Image.open(io.BytesIO(image_data.encode()))
+
+    # Set filename for the uploaded image
+        filename = str(pilihan_soal)
+
+    # Upload image file to Firebase Storage
+        blob = bucket.blob(filename)
+        blob.upload_from_file(io.BytesIO(image.tobytes()))
+        st.success('Gambar berhasil diupload ke Firebase Storage!')
 
     if st.button("Cek Jawaban"):
         if canvas_result.image_data is not None:
