@@ -8,3 +8,6 @@ tensorboard
 pyrebase4
 pycryptodome
 pyrebase
+requests
+lxml
+cssselect
