@@ -17,7 +17,7 @@ import google.auth.transport.requests
 
 cred = credentials.Certificate("drawingapp3-firebase-adminsdk-v53rh-226ee77a90.json")
 
-firebase_admin.initialize_app(cred, name='drawapp3')
+firebase_admin.initialize_app(cred)
 firebase_app = firebase_admin.get_app(name='drawing_appp')
 bucket = storage.bucket(app=firebase_app)
 
